@@ -7,8 +7,15 @@ class Program
 {
     static void Main(string[] args)
     {
+
+
+        ex1();
+    }
+
+    static void ex1()
+    {
         int a = 7;
-        User x= new User();
+        User x = new User();
 
         User y = new User();
 
@@ -25,7 +32,7 @@ class Program
         y.password = "12a";
         y.isActive = true;
         y.name = "Maria";
-    
+
 
         z.email = "test3@gmail.com";
         z.age = 33;
@@ -39,16 +46,15 @@ class Program
         //cazul x 
         if (x.age > y.age && x.age > z.age)
         {
-            Console.WriteLine("Userul cu varsta maxima este "+x.age);
-        } else if (y.age > x.age && y.age > z.age)
+            Console.WriteLine("Userul cu varsta maxima este " + x.age);
+        }
+        else if (y.age > x.age && y.age > z.age)
         {
-            Console.WriteLine("Userul cu varsta maxima este "+ y.age);
+            Console.WriteLine("Userul cu varsta maxima este " + y.age);
         }
         else
         {
             Console.WriteLine("Userul cu varsta maxima este " + z.age);
         }
-
-
     }
 }
