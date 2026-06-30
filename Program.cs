@@ -1,6 +1,7 @@
 ﻿
 using structuri;
 using System;
+using System.ComponentModel.Design;
 
 class Program
 {
@@ -14,7 +15,7 @@ class Program
         User z = new User();
 
         x.email = "test@gmail.com";
-        x.age = 23;
+        x.age = 43;
         x.password = "123a";
         x.isActive = true;
         x.name = "Ana";
@@ -32,6 +33,21 @@ class Program
         z.isActive = true;
         z.name = "test";
 
+
+        //todo: afiseazami userul  cu varsta cea mai mare
+
+        //cazul x 
+        if (x.age > y.age && x.age > z.age)
+        {
+            Console.WriteLine("Userul cu varsta maxima este "+x.age);
+        } else if (y.age > x.age && y.age > z.age)
+        {
+            Console.WriteLine("Userul cu varsta maxima este "+ y.age);
+        }
+        else
+        {
+            Console.WriteLine("Userul cu varsta maxima este " + z.age);
+        }
 
 
     }
