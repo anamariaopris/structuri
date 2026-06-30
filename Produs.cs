@@ -9,6 +9,6 @@ namespace structuri
         public String nume;
         public Double pret;
         public int stoc;
-
+        public bool inOferta;
     }
 }

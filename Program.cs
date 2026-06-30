@@ -3,6 +3,7 @@ using structuri;
 using System;
 using System.ComponentModel.Design;
 using System.Diagnostics.CodeAnalysis;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 class Program
 {
@@ -10,7 +11,7 @@ class Program
     {
 
 
-        ex4();
+        ex6();
     }
 
     static void ex1()
@@ -187,13 +188,85 @@ class Program
     }
     static void ex5()
     {
-        Produs x = new Produs
+        Produs x = new Produs();
+
+        Produs y = new Produs();
+
+        Produs z = new Produs();
+
+        x.nume = "baterie";
+        x.pret = 5;
+        x.stoc = 2;
+
+        y.nume = "bec";
+        y.pret = 10;
+        x.stoc = 1;
+
+        z.nume = "surub";
+        z.pret = 12.5; 
+        z.stoc = 10;
+
+        //suma preturilor celor 3 produse ; afiseaza val totala a stocului unui produs(pret *stoc)
+
+        double sumaPretProduse = x.pret + y.pret + z.pret;
+
+        Console.WriteLine("Suma pretului celor trei produse este: " + sumaPretProduse);
 
        
+        double surub = 12.5 * 10;
 
-        //
+        Console.WriteLine("Valoarea totala a stocului unui produs este : " + surub);
+
+
+
+
+
+
 
     }
+    static void ex6()
+    {
+        Produs x = new Produs();
+
+        Produs y = new Produs();
+
+        Produs z = new Produs();
+
+        x.nume = "baterie";
+        x.pret = 5;
+        x.stoc = 2;
+
+        y.nume = "bec";
+        y.pret = 10;
+        y.stoc = 1;
+        y.inOferta = true;
+        
+
+        z.nume = "surub";
+        z.pret = 12.5;
+        z.stoc = 10;
+        z.inOferta = true;
+
+        //Cerință: afișează numele doar pentru produsele care sunt în ofertă.
+        //Indiciu: câte un if (produs.inOferta) pentru fiecare obiect.
+
+        if (x.inOferta)
+        {
+            Console.WriteLine("baterie este in oferta ");
+        }
+        if (y.inOferta)
+        {
+
+            Console.WriteLine("bec este in oferta ");
+
+        }
+        if (z.inOferta)
+        {
+
+            Console.WriteLine("surub este in oferta ");
+        }
 
 
+
+    }
 }
