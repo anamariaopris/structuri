@@ -10,9 +10,18 @@ class Program
     static void Main(string[] args)
     {
 
+        
 
-        ex7();
-    }
+
+
+
+
+
+
+
+
+
+}
 
     static void ex1()
     {
@@ -300,7 +309,7 @@ class Program
         Student z = new Student();
 
         x.nume = "Matei";
-        x.medie = 10;
+        x.medie = 2;
 
         y.nume = "Marius";
         y.medie = 5.5;
@@ -309,24 +318,130 @@ class Program
         z.medie = 7;
 
 
-        Console.WriteLine();
-        if (medie >= 5)
+        if (x.medie >= 5)
         {
-
-            Console.WriteLine("Peomovat");
-
+            Console.WriteLine(x.nume + " Promovat");
         }
         else
         {
 
-            Console.WriteLine("Nepromovat");
+            Console.WriteLine(x.nume + " Nepromovat");
+
+        }
+        if (y.medie >=5)
+        {
+            Console.WriteLine(y.nume + " Promovat");
+        }
+        else
+        {
+
+            Console.WriteLine(y.nume + " Nepromovat");
+
+        }
+        if (z.medie >=5)
+        {
+            Console.WriteLine(z.nume + " Promovat");
+        }
+        else
+        {
+
+            Console.WriteLine(z.nume + " Nepromovat");
 
         }
 
 
+        Console.WriteLine(x.descriere());
+
+
+    }
+    static void ex9()
+    {
+        Produs x = new Produs();
+
+        x.nume = "laptop";
+        x.pret = 2500;
+        x.stoc = 12;
+        string text = "Nume " + x.nume + "\n";
+        text += "Pret " + x.pret + "\n";
+        text += "Stoc " + x.stoc;
+
+        // Console.WriteLine(x.nume + " - " + x.pret + " lei - in stoc : " + x.stoc + " buc " );
+
+        Console.WriteLine(text);
     }
 
 
+
+    //exercitii liste si for
+
+    static void ex1Liste()
+    {
+        Produs x = new Produs();
+        x.pret = 12;
+        x.nume = "laptop";
+        x.inOferta = false;
+        x.stoc = 12;
+
+        Produs x1 = new Produs();
+        x1.pret = 12;
+        x1.nume = "laptop1";
+        x1.inOferta = false;
+        x1.stoc = 12;
+
+        Produs x2 = new Produs();
+        x2.pret = 12;
+        x2.nume = "laptop2";
+        x2.inOferta = false;
+        x2.stoc = 12;
+
+        Produs x3 = new Produs();
+        x3.pret = 12;
+        x3.nume = "laptop3";
+        x3.inOferta = false;
+        x3.stoc = 12;
+
+        Produs x4 = new Produs();
+        x4.pret = 12;
+        x4.nume = "laptop4";
+        x4.inOferta = false;
+        x4.stoc = 12;
+
+        Console.WriteLine(x4.Descriere());
+
+
+        List<Produs> produse = new List<Produs>(); //listele sunt indexate 0
+
+        produse.Add(x1);//0
+        produse.Add(x2);//1
+        produse.Add(x3);//2
+        produse.Add(x4);//3
+
+
+
+        Console.WriteLine(produse[0].Descriere());
+        Console.WriteLine(produse[1].Descriere());
+        Console.WriteLine(produse[2].Descriere());
+        Console.WriteLine(produse[3].Descriere());
+
+        //produse.Count =>4
+        Console.WriteLine("Afisarea unei liste de produse folosind for");
+        for (int i = 0; i < produse.Count; i++)
+        {
+            Console.WriteLine(produse[i].Descriere());
+        }
+
+
+        //0<4 da  af(produse[0])  i devine 1
+
+        //1<4  da  af(produse[1]) i devine 2
+        //2<4  da af(produse[2])  i devine 3
+
+
+
+
+
+
+    }
 
 
 
