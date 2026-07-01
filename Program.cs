@@ -11,7 +11,7 @@ class Program
     {
 
 
-        ex6();
+        ex7();
     }
 
     static void ex1()
@@ -266,7 +266,69 @@ class Program
             Console.WriteLine("surub este in oferta ");
         }
 
+    }
+    static void ex7()
+    {
+        //creaza 2 obiecte Produs
+        Produs x = new Produs();
+        Produs y = new Produs();
+
+        //1.afiseaza pretul fiecarui produs
+        x.nume = "laptop";
+        x.pret = 1000;
+
+
+        y.nume = "telefon";
+        y.pret = 2000.5;
+
+        Console.WriteLine(x.nume + " : " +  x.pret);
+        Console.WriteLine(y.nume + " : " +  y.pret);
+
+        //2.scade 10 din pretul fiecaruia (produs.pret = produs.pret - 10)
+
+        Console.WriteLine("Pret dupa scadere");
+        Console.WriteLine(x.nume + " : " + x.pret);
+        Console.WriteLine(y.nume + " : " + x.pret);
 
 
     }
+
+    static void ex8()
+    {
+        Student x = new Student();
+        Student y = new Student();
+        Student z = new Student();
+
+        x.nume = "Matei";
+        x.medie = 10;
+
+        y.nume = "Marius";
+        y.medie = 5.5;
+
+        z.nume = "Razvan";
+        z.medie = 7;
+
+
+        Console.WriteLine();
+        if (medie >= 5)
+        {
+
+            Console.WriteLine("Peomovat");
+
+        }
+        else
+        {
+
+            Console.WriteLine("Nepromovat");
+
+        }
+
+
+    }
+
+
+
+
+
+
 }
