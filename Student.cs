@@ -11,7 +11,7 @@ namespace structuri
         public double medie;
 
 
-        public String descriere()
+        public String Descriere()
         {
             String text = "";
             text += "Nume " + nume + "\n";

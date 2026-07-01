@@ -3,6 +3,7 @@ using structuri;
 using System;
 using System.ComponentModel.Design;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Intrinsics.X86;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 class Program
@@ -10,10 +11,10 @@ class Program
     static void Main(string[] args)
     {
 
-        
 
 
 
+        exercitiul3PretulMediu();
 
 
 
@@ -350,7 +351,7 @@ class Program
         }
 
 
-        Console.WriteLine(x.descriere());
+       
 
 
     }
@@ -437,12 +438,93 @@ class Program
         //2<4  da af(produse[2])  i devine 3
 
 
+    }
+    
+    static void ex2Liste()
+    {
+        Student st1 = new Student();
+        st1.nume = "Ana";
+        st1.medie = 10;
 
+        Student st2 = new Student();
+        st2.nume = "Raul";
+        st2.medie = 5;
 
+        Student st3 = new Student();
+        st3.nume = "Mihai";
+        st3.medie = 10;
+
+        List<Student> studenti = new List<Student> ();
+
+        studenti.Add(st1);
+        studenti.Add(st2);
+        studenti.Add(st3);
+
+        Console.WriteLine("Afisarea unei liste cu studenti :");
+        for (int i = 0; i < studenti.Count;i++) 
+        {
+            Console.WriteLine(studenti[i].Descriere());
+        }
 
 
     }
 
+    static void exercitiul2Sumapreturilor()
+    {
+       Produs a = new Produs();
+        a.pret = 5;
+        a.nume = "televizor";
+
+       Produs b = new Produs();
+        b.pret = 10;
+        b.nume = "bec";
+
+        Produs c = new Produs();
+        c.pret = 12.5;
+        c.nume = "TV";
+
+        List<Produs> produse = new List<Produs>();
+
+        produse.Add(a);
+        produse.Add(b);
+        produse.Add(c);
+
+        double suma = 0;
+        for (int i = 0; i < produse.Count; i++)
+        {
+           
+
+            suma += produse[i].pret;
+
+        }
+        Console.WriteLine("Suma produselor este "+suma);
+
+    }
+
+    static void exercitiul3PretulMediu()
+    {
+        Produs Q = new Produs();
+        Q.pret = 5;
+        Produs W = new Produs();
+        W.pret = 10;
+        Produs E = new Produs();
+        E.pret = 12.5;
+
+        List<Produs> produse = new List<Produs>();
+
+        produse.Add(Q);
+        produse.Add(W);
+        produse.Add(E);
+
+        double suma = 0;
+        for(int i = 0; i < produse.Count; i++)
+        {
+            suma += produse[i].pret;
+        }
+        Console.WriteLine("Suma medie este : " +(double)( suma/produse.Count));
+
+
+    }
 
 
 
