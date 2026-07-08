@@ -15,7 +15,7 @@ namespace structuri
         public string Descriere()
         {
             string text = " ";
-            text += "Nume" + nume + "\n";
+            text += "Nume" + this.nume + "\n";
             text += "Pret" + pret + "\n";
             text += "Stoc" + stoc + "\n";
             if (inOferta)
@@ -29,6 +29,20 @@ namespace structuri
            
 
             return text;
+        }
+
+
+        public double ValoareStoc()
+        {
+            return pret * stoc;
+        }
+
+
+        public Boolean IsInStoc()
+        {
+
+            return stoc > 0;
+
         }
 
 

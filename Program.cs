@@ -13,7 +13,7 @@ class Program
     {
 
 
-        exdercitiul7ProduseleDinOferta();
+        ex2Liste();
 
 
     }
@@ -437,6 +437,7 @@ class Program
         Student st2 = new Student();
         st2.nume = "Raul";
         st2.medie = 5;
+        st2.password = "1234";
 
         Student st3 = new Student();
         st3.nume = "Mihai";
@@ -454,6 +455,8 @@ class Program
             Console.WriteLine(studenti[i].Descriere());
         }
 
+
+        Console.WriteLine(st2.IsValidCredentials("Raul","1234"));
 
     }
 
@@ -656,10 +659,86 @@ class Program
                 Console.WriteLine(produse[i].nume);
             }
         }
+    }
+
+    static void exercitiul8ProduseAuStoc()
+    {
+        Produs A = new Produs();
+        Produs B = new Produs();
+        Produs C = new Produs();
+
+        A.pret = 12.5;
+        A.nume = "surub";
+        A.stoc = 2;
+
+        B.pret = 10;
+        B.nume = "lanterna";
+        B.stoc = 1;
+
+        C.pret = 5;
+        C.nume = "baterie";
+        C.stoc = 10;
+
+        List<Produs> produse = new List<Produs>();
+
+        produse.Add(A);
+        produse.Add(B);
+        produse.Add(C);
+
+        int prag =2;
+
+        int ct = 0;
+        for (int i = 0; i < produse.Count; i++)
+        {
+            if (produse[i].stoc > prag)
+            {
+                ct++;
+            }
+           
+        }
+        Console.WriteLine("Cate produse au stoc peste prag ; " + ct++);
+
+    }
+
+    static void exercitiul9TotalStoc()
+    {
+        Produs A = new Produs();
+        Produs B = new Produs();
+        Produs C = new Produs();
+
+        A.pret = 12.5;
+        A.nume = "surub";
+        A.stoc = 2;
+
+        B.pret = 10;
+        B.nume = "lanterna";
+        B.stoc = 1;
+
+        C.pret = 5;
+        C.nume = "baterie";
+        C.stoc = 10;
+
+
+        Console.WriteLine(C.IsInStoc());
+
+        List<Produs> produse = new List<Produs>();
+
+        produse.Add(A);
+        produse.Add(B);
+        produse.Add(C);
+
+        double sumaTotala = 0;
+        for (int i = 0; i < produse.Count; i++)
+        {
+             sumaTotala+= produse[i].ValoareStoc();
+        }
+
+        Console.WriteLine("Valoare totala stoc :" + sumaTotala);
 
 
 
     }
+
 
 
 }

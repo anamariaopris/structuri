@@ -9,6 +9,7 @@ namespace structuri
         //ATRIBUTE SI METODE
         public String nume;
         public double medie;
+        public String password;
 
 
         public String Descriere()
@@ -22,6 +23,17 @@ namespace structuri
 
         }
 
+        public Boolean IsValidCredentials(String username, String password)
+        {
+            if (this.nume.Equals(username) && this.password.Equals(password))
+            {
+                return true;
+            }
+
+            return false;
+
+
+        }
 
     }
 }
