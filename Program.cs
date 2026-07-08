@@ -13,7 +13,7 @@ class Program
     {
 
 
-        ex2Liste();
+        ExercitiiMetodeCrud2();
 
 
     }
@@ -735,9 +735,40 @@ class Program
 
         Console.WriteLine("Valoare totala stoc :" + sumaTotala);
 
-
-
     }
+
+    static void ExercitiiMetodeCrud1()
+    {
+        ContBancar  ct= new ContBancar();
+
+        ct.titular = "test";
+        ct.sold = 20;
+
+        ct.Depune(-323);
+         
+
+        Console.WriteLine(ct.sold);
+    }
+    
+    static void ExercitiiMetodeCrud2()
+    {
+        ContBancar X = new ContBancar();
+
+        X.sold = 150;
+        X.Retrage(200);
+
+        Console.WriteLine(X.sold);
+    }
+
+    static bool ExercitiiMetodeCrud3()
+    {
+        if (ContBancar.PoateRetrage(50))
+        {
+
+        }
+    }
+
+
 
 
 
