@@ -1,6 +1,7 @@
 ﻿
 using structuri;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Intrinsics.X86;
@@ -12,21 +13,14 @@ class Program
     {
 
 
+        exdercitiul7ProduseleDinOferta();
 
 
-        exercitiul3PretulMediu();
-
-
-
-
-
-
-
-}
+    }
 
     static void ex1()
     {
-        
+
         User x = new User();
 
         User y = new User();
@@ -115,7 +109,7 @@ class Program
         {
             contorActivi++;
         }
-        Console.WriteLine("Useri activi" + contorActivi );
+        Console.WriteLine("Useri activi" + contorActivi);
 
     }
 
@@ -148,7 +142,7 @@ class Program
 
         //afiseaza varsta medie a celor 3 useri
 
-      double sumamedie = (x.age + y.age + z.age) / 3;
+        double sumamedie = (x.age + y.age + z.age) / 3;
 
 
         Console.WriteLine(sumamedie);
@@ -184,13 +178,13 @@ class Program
 
         //sunt de acceasi varsta?
 
-       
-        
-        if (x.age == y.age &&x.age== z.age)
+
+
+        if (x.age == y.age && x.age == z.age)
         {
             Console.WriteLine("au varste identice");
         }
-        else 
+        else
         {
             Console.WriteLine(" nu au aceeasi varsta");
         }
@@ -213,7 +207,7 @@ class Program
         x.stoc = 1;
 
         z.nume = "surub";
-        z.pret = 12.5; 
+        z.pret = 12.5;
         z.stoc = 10;
 
         //suma preturilor celor 3 produse ; afiseaza val totala a stocului unui produs(pret *stoc)
@@ -222,16 +216,10 @@ class Program
 
         Console.WriteLine("Suma pretului celor trei produse este: " + sumaPretProduse);
 
-       
+
         double surub = 12.5 * 10;
 
         Console.WriteLine("Valoarea totala a stocului unui produs este : " + surub);
-
-
-
-
-
-
 
     }
     static void ex6()
@@ -250,7 +238,7 @@ class Program
         y.pret = 10;
         y.stoc = 1;
         y.inOferta = true;
-        
+
 
         z.nume = "surub";
         z.pret = 12.5;
@@ -291,8 +279,8 @@ class Program
         y.nume = "telefon";
         y.pret = 2000.5;
 
-        Console.WriteLine(x.nume + " : " +  x.pret);
-        Console.WriteLine(y.nume + " : " +  y.pret);
+        Console.WriteLine(x.nume + " : " + x.pret);
+        Console.WriteLine(y.nume + " : " + y.pret);
 
         //2.scade 10 din pretul fiecaruia (produs.pret = produs.pret - 10)
 
@@ -329,7 +317,7 @@ class Program
             Console.WriteLine(x.nume + " Nepromovat");
 
         }
-        if (y.medie >=5)
+        if (y.medie >= 5)
         {
             Console.WriteLine(y.nume + " Promovat");
         }
@@ -339,7 +327,7 @@ class Program
             Console.WriteLine(y.nume + " Nepromovat");
 
         }
-        if (z.medie >=5)
+        if (z.medie >= 5)
         {
             Console.WriteLine(z.nume + " Promovat");
         }
@@ -351,7 +339,7 @@ class Program
         }
 
 
-       
+
 
 
     }
@@ -439,7 +427,7 @@ class Program
 
 
     }
-    
+
     static void ex2Liste()
     {
         Student st1 = new Student();
@@ -454,14 +442,14 @@ class Program
         st3.nume = "Mihai";
         st3.medie = 10;
 
-        List<Student> studenti = new List<Student> ();
+        List<Student> studenti = new List<Student>();
 
         studenti.Add(st1);
         studenti.Add(st2);
         studenti.Add(st3);
 
         Console.WriteLine("Afisarea unei liste cu studenti :");
-        for (int i = 0; i < studenti.Count;i++) 
+        for (int i = 0; i < studenti.Count; i++)
         {
             Console.WriteLine(studenti[i].Descriere());
         }
@@ -471,11 +459,11 @@ class Program
 
     static void exercitiul2Sumapreturilor()
     {
-       Produs a = new Produs();
+        Produs a = new Produs();
         a.pret = 5;
         a.nume = "televizor";
 
-       Produs b = new Produs();
+        Produs b = new Produs();
         b.pret = 10;
         b.nume = "bec";
 
@@ -492,12 +480,12 @@ class Program
         double suma = 0;
         for (int i = 0; i < produse.Count; i++)
         {
-           
+
 
             suma += produse[i].pret;
 
         }
-        Console.WriteLine("Suma produselor este "+suma);
+        Console.WriteLine("Suma produselor este " + suma);
 
     }
 
@@ -517,15 +505,161 @@ class Program
         produse.Add(E);
 
         double suma = 0;
-        for(int i = 0; i < produse.Count; i++)
+        for (int i = 0; i < produse.Count; i++)
         {
             suma += produse[i].pret;
         }
-        Console.WriteLine("Suma medie este : " +(double)( suma/produse.Count));
+        Console.WriteLine("Suma medie este : " + (double)(suma / produse.Count));
 
 
     }
 
+    static void exercitiul4CelMaiScumpProdus()
+    {
+        Produs A = new Produs();
+        Produs B = new Produs();
+        Produs C = new Produs();
+
+        A.pret = 12.5;
+        A.nume = "surub";
+
+        B.pret = 10;
+        B.nume = "lanterna";
+
+        C.pret = 5;
+        C.nume = "baterie";
+
+        List<Produs> produse = new List<Produs>();
+
+        produse.Add(A);
+        produse.Add(B);
+        produse.Add(C);
+
+        Produs maxim = produse[0]; // este pretul maxim
+
+        for (int i = 1; i < produse.Count; i++)
+        {
+            if(produse[i].pret > maxim.pret)
+            {
+                maxim = produse[i];
+            }
+
+        }
+
+        Console.WriteLine("Produsul cel mai scump este " + maxim.nume);
+
+
+    }
+
+    static void exercitiul5CelMaiIeftinProdus()
+    {
+        Produs A = new Produs();
+        Produs B = new Produs();
+        Produs C = new Produs();
+
+        A.pret = 12.5;
+        A.nume = "surub";
+
+        B.pret = 10;
+        B.nume = "lanterna";
+
+        C.pret = 5;
+        C.nume = "baterie";
+
+        List<Produs> produse = new List<Produs>();
+
+        produse.Add(A);
+        produse.Add(B);
+        produse.Add(C);
+
+        Produs minim = produse[2];
+
+        for (int i = 0; i < produse.Count; i++) //parcurg fiecare element din lista cu Count i++ 
+        {
+            if (produse[i].pret <= minim.pret)
+                minim = produse[i];
+
+            
+        }
+
+        Console.WriteLine("Produsul cel mai ieftin este " + minim.nume);
+
+    }
+    
+    static void exercitiu6CateProduseInOferta ()
+    {
+        Produs A = new Produs();
+        Produs B = new Produs();
+        Produs C = new Produs();
+
+        A.pret = 12.5;
+        A.nume = "surub";
+        A.inOferta = false;
+
+        B.pret = 10;
+        B.nume = "lanterna";
+        B.inOferta = true;
+
+        C.pret = 5;
+        C.nume = "baterie";
+        C.inOferta = true;
+
+        List<Produs> produse = new List<Produs>();
+
+        produse.Add(A);
+        produse.Add(B);
+        produse.Add(C);
+
+        int ct = 0;//numar produsele in oferta 
+
+        for (int i = 0; i < produse.Count; i++) //parcurg fiecare element din lista cu Count i++ 
+        {
+            if (produse[i].inOferta)
+
+                ct++;
+
+
+        }
+
+        Console.WriteLine("Cate produse sunt in oferta: " + ct);
+
+    }
+
+    static void exdercitiul7ProduseleDinOferta()
+    {
+        Produs A = new Produs();
+        Produs B = new Produs();
+        Produs C = new Produs();
+
+        A.pret = 12.5;
+        A.nume = "surub";
+        A.inOferta = false;
+
+        B.pret = 10;
+        B.nume = "lanterna";
+        B.inOferta = true;
+
+        C.pret = 5;
+        C.nume = "baterie";
+        C.inOferta = true;
+
+        List<Produs> produse = new List<Produs>();
+
+        produse.Add(A);
+        produse.Add(B);
+        produse.Add(C);
+
+        for (int i = 0; i < produse.Count; i++)
+        {
+            if (produse[i].inOferta)
+            {
+                Console.WriteLine(produse[i].nume);
+            }
+        }
+
+
+
+    }
 
 
 }
