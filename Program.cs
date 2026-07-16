@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Intrinsics.X86;
+using System.Security.Cryptography.X509Certificates;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 class Program
@@ -13,7 +14,10 @@ class Program
     {
 
 
-        ExercitiiMetodeCrud2();
+        ExercitiiMetodeCrud9();
+
+      
+
 
 
     }
@@ -760,12 +764,237 @@ class Program
         Console.WriteLine(X.sold);
     }
 
-    static bool ExercitiiMetodeCrud3()
+    static void  ExercitiiMetodeCrud3()
     {
-        if (ContBancar.PoateRetrage(50))
+
+        ContBancar x = new ContBancar();
+
+        x.sold = 90;
+
+        if (x.PoateRetrage(90))
         {
+            Console.WriteLine("se poate");
+        }
+        else
+        {
+            Console.WriteLine("fonduri insuficiente");
+        }
+
+    }
+
+    static void ExercitiiMetodeCrud4()
+    {
+
+        Utilizator a = new Utilizator();
+
+        a.username = "Ana.Maria";
+        a.esteActiv = true;
+        a.password = "abcd";
+
+        if (a.Login("test1","psw"))
+        {
+            Console.WriteLine("logat");
 
         }
+        else
+        {
+            Console.WriteLine("credentiale incorecte");
+        }
+
+        Utilizator b = new Utilizator();
+
+        b.username = "TEST";
+        b.esteActiv = true;
+        b.password = "password";
+
+        if (b.Login("TEST", "password"))
+        {
+            Console.WriteLine("logat");
+
+        }
+        else
+        {
+            Console.WriteLine("Credentiale incorecte");
+        }
+
+
+    }
+
+    static void ExercitiiMetodeCrud5()
+    {
+        Utilizator x = new Utilizator();
+        x.password = "password";
+
+        if(x.ParolaEstePuternica())
+        {
+            Console.WriteLine("Parola corecta");
+        }
+        else
+        {
+            Console.WriteLine("Parola prea scurta");
+        }
+
+
+
+    }
+    static void ExercitiiMetodeCrud6()
+    {
+
+        Utilizator x = new Utilizator();
+        x.email = "ana@gmail.com";
+
+        if (x.EmailEsteValid())
+        {
+            Console.WriteLine("Contine");
+
+        }
+        else
+        {
+            Console.WriteLine("Nu contine");
+        }
+
+    }
+    static void ExercitiiMetodeCrud7()
+    {
+        Utilizator x = new Utilizator();
+        x.email = "ana@gmail.com";
+
+        if (x.EmailEsteValid() || x.ParolaEstePuternica())
+        {
+            Console.WriteLine("Cont creat cu succes");
+
+        }
+        else
+        {
+            Console.WriteLine("Date invalide");
+        }
+
+    }
+
+    static void ExercitiiMetodeCrud8()
+    {
+        Produs q = new Produs();
+        q.nume = "laptop";
+        q.pret = 2500;
+
+        Produs w = new Produs();
+        w.nume = "tastatra";
+        w.pret = 0;
+
+        List<Produs> produse = new List<Produs>();
+
+        if (q.nume.Length > 0 && q.pret > 0)
+        {
+            produse.Add(q);
+            
+        }
+        else
+        {
+            Console.WriteLine(q.nume +" nu respecta validarea listei");
+        }
+
+
+        if(w.nume.Length > 0 && w.pret > 0)
+        {
+            produse.Add(w);
+            
+        }
+        else
+        {
+            Console.WriteLine (w.nume + " respins");
+        }
+
+        Console.WriteLine("produsele adaugate au fost");
+        for(int i = 0; i < produse.Count; i++)
+        {
+            Console.WriteLine(produse[i].nume);
+        }
+
+
+
+    }
+
+
+
+    //Exersare - > ContBancar_exersare.cs
+
+    static void ExercitiuExersare1()
+    {
+        ContBancar_exersare x = new ContBancar_exersare(); //am creat obiectul cu new
+
+        x.titular = "administrator"; //folosind operatorul (.) accesez variabila titular
+        //din interiorul obiectulului x si atribui textul "administrator"
+
+        x.sold = 100; //accesez variabila sold din obiectul "x" si atribui valoarea 100
+
+        x.Depune(+50); //functia "METODA" din interiorul obiectului x
+
+        Console.WriteLine(x.sold);
+
+
+
+    }
+
+    static void ExercitiuExersare2()
+    {
+        ContBancar_exersare xyz = new ContBancar_exersare();
+
+        xyz.sold = 150;
+
+        xyz.Retragere(200); 
+
+
+    }
+
+
+
+    static void ExercitiiMetodeCrud9()
+    {
+        Produs z = new Produs();
+        Produs x = new Produs();
+        Produs ab = new Produs();
+        Produs abc = new Produs();
+
+
+        z.nume = "lanterna";
+        x.nume = "baterie";
+        ab.nume = "lanterna2";
+        abc.nume = "baterie";
+
+        z.pret = 12;
+        x.pret = 5;
+        ab.pret = 25;
+        abc.pret = 1;
+
+        z.stoc = 1;
+        x.stoc = 3;
+        ab.stoc = 5;
+        abc.stoc = 10;
+
+
+
+        List<Produs> produse = new List<Produs>();
+        produse.Add(z);
+        produse.Add(x);
+        produse.Add(ab);
+        produse.Add(abc);
+
+
+        for (int i = 0; i < produse.Count; i++)
+        {
+            if (produse[i].nume.Equals("lanterna"))
+            {
+
+                Console.WriteLine(produse[i].Descriere());
+
+            }
+           
+
+        }
+
+         
+       
+
     }
 
 
@@ -773,3 +1002,4 @@ class Program
 
 
 }
+
