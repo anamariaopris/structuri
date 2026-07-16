@@ -11,13 +11,14 @@ namespace structuri
         public Double pret;
         public int stoc;
         public bool inOferta;
+        public Double pretNou;
 
         public string Descriere()
         {
             string text = " ";
-            text += "Nume" + this.nume + "\n";
-            text += "Pret" + pret + "\n";
-            text += "Stoc" + stoc + "\n";
+            text += "Nume " + this.nume + "\n";
+            text += "Pret " + pret + "\n";
+            text += "Stoc " + stoc + "\n";
             if (inOferta)
             {
                 text += " este la oferta";
@@ -28,7 +29,7 @@ namespace structuri
             }
            
 
-            return text;
+            return text+"\n";
         }
 
 
