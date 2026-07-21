@@ -15,7 +15,8 @@ class Program
     {
 
 
-        ExercitiiMetodeCrud12();
+        ex1Liste();
+        
 
       
 
@@ -127,7 +128,7 @@ class Program
         User z = new User();
 
         x.email = "test@gmail.com";
-        x.age = 43;
+        x.age = 40;
         x.password = "123a";
         x.isActive = true;
         x.name = "Ana";
@@ -140,7 +141,7 @@ class Program
 
 
         z.email = "test3@gmail.com";
-        z.age = 33;
+        z.age = 20;
         z.password = "1aa";
         z.isActive = true;
         z.name = "test";
@@ -209,7 +210,7 @@ class Program
 
         y.nume = "bec";
         y.pret = 10;
-        x.stoc = 1;
+        y.stoc = 1;
 
         z.nume = "surub";
         z.pret = 12.5;
@@ -222,9 +223,9 @@ class Program
         Console.WriteLine("Suma pretului celor trei produse este: " + sumaPretProduse);
 
 
-        double surub = 12.5 * 10;
+        double valoareStoc = z.pret * z.stoc;
 
-        Console.WriteLine("Valoarea totala a stocului unui produs este : " + surub);
+        Console.WriteLine("Valoarea totala a stocului unui produs este : " + valoareStoc);
 
     }
     static void ex6()
@@ -765,20 +766,20 @@ class Program
         Console.WriteLine(X.sold);
     }
 
-    //static void  ExercitiiMetodeCrud3()
+    //static void  exercitiimetodecrud3()
     //{
 
-    //    ContBancar x = new ContBancar();
+    //    contbancar x = new contbancar();
 
     //    x.sold = 90;
 
-    //    if (x.PoateRetrage(90))
+    //    if (x.poateretrage(90))
     //    {
-    //        Console.WriteLine("se poate");
+    //        console.writeline("se poate");
     //    }
     //    else
     //    {
-    //        Console.WriteLine("fonduri insuficiente");
+    //        console.writeline("fonduri insuficiente");
     //    }
 
     //}
