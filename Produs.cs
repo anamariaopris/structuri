@@ -12,6 +12,8 @@ namespace structuri
         public int stoc;
         public bool inOferta;
         public Double pretNou;
+        public double procent;
+        
 
         public string Descriere()
         {
@@ -45,6 +47,18 @@ namespace structuri
             return stoc > 0;
 
         }
+
+        public  void  AplicaReducere(double reducere)
+        {
+
+            this.pret = this.pret - (reducere / 100) * this.pret;
+        }
+        
+
+            
+
+        
+        
 
      
 

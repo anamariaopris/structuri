@@ -15,7 +15,7 @@ class Program
     {
 
 
-        ex1Liste();
+        Exercitiul14();
         
 
       
@@ -1112,6 +1112,139 @@ class Program
 
         Console.WriteLine("In total sunt "+ct +" produse la oferat");
     }
+
+    static void Exercitiul13()
+    {
+        Utilizatori x = new Utilizatori();
+        x.username = "Ana";
+        x.parola = "abcd";
+
+        Utilizatori y = new Utilizatori();
+        y.username = "Raul";
+        y.parola = "bcd";
+
+
+        Utilizatori w = new Utilizatori();
+        w.username = "Mihai";
+        w.parola = "zzz";
+
+
+        List<Utilizatori> utilizatori = new List<Utilizatori>();
+
+        utilizatori.Add(x);
+        utilizatori.Add(y);
+        utilizatori.Add(w);
+
+        //
+        string usr = "Ana";
+        string pass = "abcd";
+
+        Utilizatori cautat = null;
+
+        for (int i = 0; i < utilizatori.Count; i++)
+        {
+            if (utilizatori[i].username.Equals(usr))
+            {
+
+
+
+                cautat = utilizatori[i];
+
+            }
+
+        }
+
+        if (cautat != null)
+        {
+
+            if (cautat.Login(usr, pass))
+            {
+                Console.WriteLine("Autentificare reusita");
+            }
+            else
+            {
+                Console.WriteLine("parola incorecta");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Utilizatorul nu exiusta");
+        }
+
+
+
+
+    }
+
+    static void Exercitiul14()
+    {
+        Produs x = new Produs();
+        x.nume = "produs1";
+        x.pret = 120;
+        x.stoc = 2;
+        x.procent = 5;
+
+        Produs y = new Produs();
+        y.nume = "produs2";
+        y.pret = 100;
+        y.stoc = 20;
+        y.procent = 30;
+
+        Produs z = new Produs();
+        z.nume = "produs3";
+        z.pret = 850;
+        z.stoc = 2;
+        z.procent = 10;
+
+
+        Produs q = new Produs();
+        q.nume = "produs4";
+        q.pret = 140;
+        q.stoc = 3;
+        q.procent = 15;
+
+        List<Produs> produse = new List<Produs>();
+        produse.Add(x);
+        produse.Add(y);
+        produse.Add(z);
+        produse.Add(q);
+
+        double total = 0;
+        for(int i = 0; i< produse.Count; i++)
+        {
+
+            total += produse[i].ValoareStoc();
+        }
+
+        Console.WriteLine("Valoarea produselor este "+total);
+
+        double procent = 10;
+  
+        for(int i = 0; i < produse.Count; i++)
+        {
+
+            produse[i].AplicaReducere(procent);
+
+        }
+
+        Console.WriteLine("Dupa reducere noul pret al produselor este");
+        for (int i = 0; i < produse.Count; i++)
+        {
+
+            Console.WriteLine(produse[i].nume+" " + produse[i].pret);
+
+        }
+
+
+
+
+
+
+
+
+    }
+
+
 
 
 
