@@ -2,22 +2,25 @@
 using System.Collections.Generic;
 using System.Runtime.Intrinsics.Arm;
 using System.Text;
+using System.Transactions;
 
 namespace structuri
 {
     internal class Produs
     {
         public String nume;
-        public Double pret;
+        public double pret;
         public int stoc;
         public bool inOferta;
-        public Double pretNou;
+        public double pretNou;
         public double procent;
         
 
         public string Descriere()
         {
-            string text = " ";
+            
+            
+            string text = "";
             text += "Nume " + this.nume + "\n";
             text += "Pret " + pret + "\n";
             text += "Stoc " + stoc + "\n";
@@ -48,7 +51,9 @@ namespace structuri
 
         }
 
-        public  void  AplicaReducere(double reducere)
+        public  void  AplicaReducere(double reducere)  
+        //variabila reducere defapt ia valoarea din variabila procent,
+        //AplicaReducere(procent) - > aici procent nu exista defapt   
         {
 
             this.pret = this.pret - (reducere / 100) * this.pret;

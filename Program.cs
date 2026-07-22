@@ -7,6 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Runtime.Intrinsics.X86;
 using System.Security.Cryptography.X509Certificates;
+using System.Xml;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 class Program
@@ -15,7 +16,7 @@ class Program
     {
 
 
-        Exercitiul14();
+        Exercitiul15();
         
 
       
@@ -1236,6 +1237,233 @@ class Program
         }
 
 
+    }
+
+    static void ExercitiuRecapitulare14()
+    {
+        Produs xyz1 = new Produs();
+        xyz1.nume = "AAA";
+        xyz1.stoc = 2;
+        xyz1.pret = 10;
+
+
+        Produs xyz2 = new Produs();
+        xyz2.nume = "bbb";
+        xyz2.stoc = 20;
+        xyz2.pret = 100;
+
+
+        Produs xyz3 = new Produs();
+        xyz3.nume = "xxx";
+        xyz3.stoc = 15;
+        xyz3.pret = 500;
+
+        List <Produs> produse = new List<Produs>();
+
+        produse.Add(xyz1);
+        produse.Add(xyz2);
+        produse.Add(xyz3);
+
+        double valoareSuma = 0; //nu cunosc suma de la inceput
+
+        for (int i = 0;i < produse.Count; i++)
+        {
+            valoareSuma = valoareSuma + produse[i].ValoareStoc();
+            //produse[i] - > doar un produs oarecare din lista
+
+        }
+        Console.WriteLine(valoareSuma);
+
+        double procent = 10;
+
+        for(int i = 0; i < produse.Count; i++)
+        {
+            produse[i].AplicaReducere(procent);
+
+
+            //Console.WriteLine(produse[i].pret ); 
+        }
+    
+        Console.WriteLine("Dupa reducere noul pret al produselor este: ");
+
+
+        for (int i = 0; i < produse.Count; i++)
+        {
+
+            Console.WriteLine(produse[i].nume + " " + produse[i].pret);
+
+        }
+
+
+    }
+
+    static void Exercitiul15()
+    {
+        Produs x = new Produs();
+        x.nume = "produs1";
+        x.pret = 120;
+        x.stoc = 2;
+        x.procent = 5;
+
+        Produs y = new Produs();
+        y.nume = "";
+        y.pret = 100;
+        y.stoc = 20;
+        y.procent = 30;
+
+        Produs z = new Produs();
+        z.nume = "produs3";
+        z.pret = 850;
+        z.stoc = 2;
+        z.procent = 10;
+
+        List<Produs> produse = new List<Produs>();
+        Console.WriteLine("============Adaugarea cu validare====================");
+        if (x.nume.Length > 0 && x.pret > 0)
+        {
+            produse.Add(x);
+
+        }
+        else
+        {
+            Console.WriteLine(x.nume + " nu respecta validarea listei");
+        }
+
+        if(y.nume.Length > 0 && y.pret > 0)
+        {
+            produse.Add(y);
+
+        }
+        else
+        {
+            Console.WriteLine(y.nume + " nu respecta validarea listei");
+        }
+
+        if(z.nume.Length > 0 && z.pret > 0)
+        {
+            produse.Add(z);
+        }
+        else
+        {
+            Console.WriteLine(z.nume + " nu respecta validarea listei");
+        }
+
+        Console.WriteLine("============Afisarea produselor dupa adaugare=============");
+        for (int i = 0; i < produse.Count; i++)
+        {
+
+            Console.WriteLine(produse[i].Descriere());
+
+        }
+
+        Produs produsCautat = null;
+        string numeProdusCautat = "produs3asdsa";
+
+        int noulPret = 12;
+
+        for (int i = 0; i < produse.Count; i++)
+        {
+            if (produse[i].nume.Equals(numeProdusCautat))
+            {
+                produsCautat = produse[i];
+            }
+
+        }
+
+        if (produsCautat != null)
+        {
+
+            produsCautat.pret = noulPret;
+
+        }
+        else
+        {
+            Console.WriteLine(numeProdusCautat+ "nu exista in lista");
+        }
+
+
+        Console.WriteLine("=============Afisarea produselor dupa editare pret==========");
+
+        for (int i = 0; i < produse.Count; i++)
+        {
+
+            Console.WriteLine(produse[i].Descriere());
+
+        }
+
+
+        Produs prCautat = null;
+        string numePrCautat = "produs1";
+        for (int i = 0; i < produse.Count; i++)
+        {
+            if (produse[i].nume.Equals(numePrCautat))
+            {
+                prCautat = produse[i];
+              
+            }
+
+         
+        }
+
+        //
+        if (prCautat != null)
+        {
+            produse.Remove(prCautat);
+            Console.WriteLine("prodsul a fost sters");
+        }
+        else
+        {
+            Console.WriteLine("produslu nu  afost gasit");
+        }
+
+        for (int i = 0; i < produse.Count; i++)
+        {
+
+            Console.WriteLine(produse[i].Descriere());
+
+        }
+
+
+    }
+
+    static void Exercitiul1Pizza()
+    {
+        Pizza x = new Pizza();
+        x.nume = "Margherita";
+        x.pret = 20;
+        x.disponibila = true;
+
+        Pizza y = new Pizza();
+        y.nume = "Capriciosa";
+        y.pret = 25;
+        y.disponibila = true;
+
+        Pizza w = new Pizza();
+        w.nume = "Diavola";
+        w.pret = 40;
+        w.disponibila = false;
+
+        List<Pizza> pizze = new List<Pizza>();
+
+        pizze.Add(x);
+        pizze.Add(y);
+        pizze.Add(w);
+
+        Pizza gasita = null;
+       
+        string cautaPizza = "Margherita";
+
+        for (int i = 0; i < pizze.Count; i++)
+        {
+            if(gasita != null)
+            {
+                gasita = pizze[i];
+
+            }
+
+
+
+        }
 
 
 
@@ -1243,7 +1471,6 @@ class Program
 
 
     }
-
 
 
 
