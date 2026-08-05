@@ -16,10 +16,10 @@ class Program
     {
 
 
-        Exercitiul15();
-        
+        Exercitiul5Playlist();
 
-      
+
+
 
 
 
@@ -463,7 +463,7 @@ class Program
         }
 
 
-        Console.WriteLine(st2.IsValidCredentials("Raul","1234"));
+        Console.WriteLine(st2.IsValidCredentials("Raul", "1234"));
 
     }
 
@@ -549,7 +549,7 @@ class Program
 
         for (int i = 1; i < produse.Count; i++)
         {
-            if(produse[i].pret > maxim.pret)
+            if (produse[i].pret > maxim.pret)
             {
                 maxim = produse[i];
             }
@@ -589,14 +589,14 @@ class Program
             if (produse[i].pret <= minim.pret)
                 minim = produse[i];
 
-            
+
         }
 
         Console.WriteLine("Produsul cel mai ieftin este " + minim.nume);
 
     }
-    
-    static void exercitiu6CateProduseInOferta ()
+
+    static void exercitiu6CateProduseInOferta()
     {
         Produs A = new Produs();
         Produs B = new Produs();
@@ -692,7 +692,7 @@ class Program
         produse.Add(B);
         produse.Add(C);
 
-        int prag =2;
+        int prag = 2;
 
         int ct = 0;
         for (int i = 0; i < produse.Count; i++)
@@ -701,7 +701,7 @@ class Program
             {
                 ct++;
             }
-           
+
         }
         Console.WriteLine("Cate produse au stoc peste prag ; " + ct++);
 
@@ -737,7 +737,7 @@ class Program
         double sumaTotala = 0;
         for (int i = 0; i < produse.Count; i++)
         {
-             sumaTotala+= produse[i].ValoareStoc();
+            sumaTotala += produse[i].ValoareStoc();
         }
 
         Console.WriteLine("Valoare totala stoc :" + sumaTotala);
@@ -746,17 +746,17 @@ class Program
 
     static void ExercitiiMetodeCrud1()
     {
-        ContBancar  ct= new ContBancar();
+        ContBancar ct = new ContBancar();
 
         ct.titular = "test";
         ct.sold = 20;
 
         ct.Depune(-323);
-         
+
 
         Console.WriteLine(ct.sold);
     }
-    
+
     static void ExercitiiMetodeCrud2()
     {
         ContBancar X = new ContBancar();
@@ -889,26 +889,26 @@ class Program
         if (q.nume.Length > 0 && q.pret > 0)
         {
             produse.Add(q);
-            
+
         }
         else
         {
-            Console.WriteLine(q.nume +" nu respecta validarea listei");
+            Console.WriteLine(q.nume + " nu respecta validarea listei");
         }
 
 
-        if(w.nume.Length > 0 && w.pret > 0)
+        if (w.nume.Length > 0 && w.pret > 0)
         {
             produse.Add(w);
-            
+
         }
         else
         {
-            Console.WriteLine (w.nume + " respins");
+            Console.WriteLine(w.nume + " respins");
         }
 
         Console.WriteLine("produsele adaugate au fost");
-        for(int i = 0; i < produse.Count; i++)
+        for (int i = 0; i < produse.Count; i++)
         {
             Console.WriteLine(produse[i].nume);
         }
@@ -957,11 +957,11 @@ class Program
                 Console.WriteLine(produse[i].Descriere());
 
             }
-           
+
 
         }
 
-        
+
 
 
 
@@ -1004,9 +1004,9 @@ class Program
                 produse[i].pret = 1234;
             }
 
-            
+
         }
-        Console.WriteLine("Pretul final este  "+ abc.pret);
+        Console.WriteLine("Pretul final este  " + abc.pret);
 
     }
 
@@ -1045,16 +1045,16 @@ class Program
         {
             if (produse[i].nume.Equals("baterie2"))
             {
-                
+
                 produse.RemoveAt(i);
 
 
             }
-            
+
 
 
         }
-        Console.WriteLine("=====================");    
+        Console.WriteLine("=====================");
         for (int i = 0; i < produse.Count; i++)
         {
             Console.WriteLine(produse[i].Descriere());
@@ -1089,7 +1089,7 @@ class Program
         z.inOferta = true;
         x.inOferta = true;
         ab.inOferta = false;
-        abc.inOferta= true;
+        abc.inOferta = true;
 
         List<Produs> produse = new List<Produs>();
 
@@ -1111,7 +1111,7 @@ class Program
 
 
 
-        Console.WriteLine("In total sunt "+ct +" produse la oferat");
+        Console.WriteLine("In total sunt " + ct + " produse la oferat");
     }
 
     static void Exercitiul13()
@@ -1211,17 +1211,17 @@ class Program
         produse.Add(q);
 
         double total = 0;
-        for(int i = 0; i< produse.Count; i++)
+        for (int i = 0; i < produse.Count; i++)
         {
 
             total += produse[i].ValoareStoc();
         }
 
-        Console.WriteLine("Valoarea produselor este "+total);
+        Console.WriteLine("Valoarea produselor este " + total);
 
         double procent = 10;
-  
-        for(int i = 0; i < produse.Count; i++)
+
+        for (int i = 0; i < produse.Count; i++)
         {
 
             produse[i].AplicaReducere(procent);
@@ -1232,7 +1232,7 @@ class Program
         for (int i = 0; i < produse.Count; i++)
         {
 
-            Console.WriteLine(produse[i].nume+" " + produse[i].pret);
+            Console.WriteLine(produse[i].nume + " " + produse[i].pret);
 
         }
 
@@ -1258,7 +1258,7 @@ class Program
         xyz3.stoc = 15;
         xyz3.pret = 500;
 
-        List <Produs> produse = new List<Produs>();
+        List<Produs> produse = new List<Produs>();
 
         produse.Add(xyz1);
         produse.Add(xyz2);
@@ -1266,7 +1266,7 @@ class Program
 
         double valoareSuma = 0; //nu cunosc suma de la inceput
 
-        for (int i = 0;i < produse.Count; i++)
+        for (int i = 0; i < produse.Count; i++)
         {
             valoareSuma = valoareSuma + produse[i].ValoareStoc();
             //produse[i] - > doar un produs oarecare din lista
@@ -1276,14 +1276,14 @@ class Program
 
         double procent = 10;
 
-        for(int i = 0; i < produse.Count; i++)
+        for (int i = 0; i < produse.Count; i++)
         {
             produse[i].AplicaReducere(procent);
 
 
             //Console.WriteLine(produse[i].pret ); 
         }
-    
+
         Console.WriteLine("Dupa reducere noul pret al produselor este: ");
 
 
@@ -1329,7 +1329,7 @@ class Program
             Console.WriteLine(x.nume + " nu respecta validarea listei");
         }
 
-        if(y.nume.Length > 0 && y.pret > 0)
+        if (y.nume.Length > 0 && y.pret > 0)
         {
             produse.Add(y);
 
@@ -1339,7 +1339,7 @@ class Program
             Console.WriteLine(y.nume + " nu respecta validarea listei");
         }
 
-        if(z.nume.Length > 0 && z.pret > 0)
+        if (z.nume.Length > 0 && z.pret > 0)
         {
             produse.Add(z);
         }
@@ -1356,59 +1356,59 @@ class Program
 
         }
 
-        Produs produsCautat = null;
-        string numeProdusCautat = "produs3asdsa";
+        /* Produs produsCautat = null;
+         string numeProdusCautat = "produs3asdsa";
 
-        int noulPret = 12;
+         int noulPret = 12;
 
-        for (int i = 0; i < produse.Count; i++)
-        {
-            if (produse[i].nume.Equals(numeProdusCautat))
-            {
-                produsCautat = produse[i];
-            }
+         for (int i = 0; i < produse.Count; i++)
+         {
+             if (produse[i].nume.Equals(numeProdusCautat))
+             {
+                 produsCautat = produse[i];
+             }
 
-        }
+         }
 
-        if (produsCautat != null)
-        {
+         if (produsCautat != null)
+         {
 
-            produsCautat.pret = noulPret;
+             produsCautat.pret = noulPret;
 
-        }
-        else
-        {
-            Console.WriteLine(numeProdusCautat+ "nu exista in lista");
-        }
-
-
-        Console.WriteLine("=============Afisarea produselor dupa editare pret==========");
-
-        for (int i = 0; i < produse.Count; i++)
-        {
-
-            Console.WriteLine(produse[i].Descriere());
-
-        }
+         }
+         else
+         {
+             Console.WriteLine(numeProdusCautat + "nu exista in lista");
+         }
 
 
-        Produs prCautat = null;
+         Console.WriteLine("=============Afisarea produselor dupa editare pret==========");
+
+         for (int i = 0; i < produse.Count; i++)
+         {
+
+             Console.WriteLine(produse[i].Descriere());
+
+         }
+         
+
+        Produs prCautat  = null;
         string numePrCautat = "produs1";
         for (int i = 0; i < produse.Count; i++)
         {
             if (produse[i].nume.Equals(numePrCautat))
             {
                 prCautat = produse[i];
-              
+
             }
 
-         
-        }
 
-        //
-        if (prCautat != null)
+        } 
+
+       
+        if (produsCautat != null)
         {
-            produse.Remove(prCautat);
+            produse.Remove(produsCautat);
             Console.WriteLine("prodsul a fost sters");
         }
         else
@@ -1421,9 +1421,9 @@ class Program
 
             Console.WriteLine(produse[i].Descriere());
 
-        }
+        } 
 
-
+         */
     }
 
     static void Exercitiul1Pizza()
@@ -1450,26 +1450,288 @@ class Program
         pizze.Add(w);
 
         Pizza gasita = null;
-       
-        string cautaPizza = "Margherita";
 
-        for (int i = 0; i < pizze.Count; i++)
+        string cautaPizza = "Hawaii";
+
+        for (int i = 0; i < pizze.Count; i++)//cauta pizza
         {
-            if(gasita != null)
+            if (pizze[i].nume.Equals(cautaPizza)) //pizza gasita?
             {
                 gasita = pizze[i];
 
             }
 
+        }
+
+        if(gasita == null) //Disponibila?  -> NU
+        {
+            Console.WriteLine("Nu este in meniu ! ");
+        }
+        else
+        {
+            Console.WriteLine("Pizza gasita : " + gasita.nume); // - > GASITA  
+
+            if (gasita.disponibila)
+            {
+                gasita.disponibila = true;
+
+                Console.WriteLine("Pretul este : " + gasita.pret);
+            }
+            else
+            {
+                Console.WriteLine("Pizza momentan indisponibila ! ");
+            }
+
+        }
+
+    }
+
+    static void Exercitiul2Cinema()
+    {
+        Film film1 = new Film();
+        film1.titlu = "Fast and furious";
+        film1.locuriLibere = 5;
+
+        Film film2 = new Film();
+        film2.titlu = "Game of thrones";
+        film2.locuriLibere = 10;
+
+        Film film3 = new Film();
+        film3.titlu = "The last kingdom";
+        film3.locuriLibere = 8;
+
+        List<Film> filme = new List<Film>();
+
+        filme.Add(film1);
+        filme.Add(film2);
+        filme.Add(film3);
+
+        Film gasit = null;
+        string numeFilmCautat = "Fast and furious";
+      
+
+        for (int i = 0; i < filme.Count; i++)
+        {
+            if (filme[i].titlu.Equals(numeFilmCautat))
+            {
+                gasit = filme[i];// pot retine filmul gasit si il pot folosi dupa ce se termina bucla for
+
+                gasit.locuriLibere = gasit.locuriLibere - 1;
+            }
+
+        }
+
+        if (gasit != null && gasit.locuriLibere > 0)
+        {
+            
+            Console.WriteLine("Film găsit: " + gasit.titlu);
+            Console.WriteLine("Locuri libere: " + gasit.locuriLibere);
+            Console.WriteLine("Bilet rezervat ");
+        }
+        else
+        {
+            Console.WriteLine("Film indisponibil");
+        }
 
 
+    }
+
+    static void Exercitiul3Joc()
+    {
+        Joc joc1 = new Joc();
+        joc1.nume = "Cs1.6";
+        joc1.platforma = "AAA";
+        joc1.terminat = false;
+
+        Joc joc2 = new Joc();
+        joc2.nume = "CsGO";
+        joc2.platforma = "AAA";
+        joc2.terminat = false;
+
+        Joc joc3 = new Joc();
+        joc3.nume = "metin2";
+        joc3.platforma = "AAA";
+        joc3.terminat = false;
+
+
+        Joc joc4 = new Joc();
+        joc4.nume = "gta";
+        joc4.platforma = "AAA";
+        joc4.terminat = false;
+
+        List<Joc> jocuri = new List<Joc>();
+
+        jocuri.Add(joc1);
+        jocuri.Add(joc2);
+        jocuri.Add(joc3);
+        jocuri.Add(joc4);
+
+        Joc identificat = null; //retin jocul
+        string cautaJoc = "metin2";//cAut dupa nume
+
+        for (int i = 0; i < jocuri.Count; i++)
+        {
+            if (jocuri[i].nume.Equals(cautaJoc))
+            {
+                identificat = jocuri[i]; //identificat face referire la acelasi obiect Joc din lista,
+                                         //devine referinta catre jocuri[i]
+                
+              
+
+            }
+
+        }
+
+        if (identificat != null) //jocul exista
+        {
+
+            identificat.terminat = true; // schimba starea jocului din lista
+
+
+            Console.WriteLine("Joc gasit : " +identificat.nume);
+
+            Console.WriteLine("Joc marcat ca terminat");
+
+
+        }
+        else if (identificat == null)
+        {
+            Console.WriteLine("Nu e in colectie ");
         }
 
 
 
+    }
+
+    static void Exercitiul4Adapost()
+    {
+
+        Adapost adapost1 = new Adapost();
+        adapost1.nume = "Max";
+        adapost1.specie = "caine";
+        adapost1.adoptat = false;
+
+        Adapost adapost2 = new Adapost();
+        adapost2.nume = "Lola";
+        adapost2.specie = "pisica";
+        adapost2.adoptat = false;
+
+        Adapost adapost3 = new Adapost();
+        adapost3.nume = "Zuzu";
+        adapost3.specie = "maimuta";
+        adapost3.adoptat = false;
+
+        Adapost adapost4 = new Adapost();
+        adapost4.nume = "Lulu";
+        adapost4.specie = "iepure";
+        adapost4.adoptat = false;
+
+        List<Adapost> adaposturi = new List<Adapost>();
+
+        adaposturi.Add(adapost1);
+        adaposturi.Add(adapost2);
+        adaposturi.Add(adapost3);
+        adaposturi.Add(adapost4);
+
+        Adapost gasesteanimal = null; //nu am gasit nici un animal 
+        string cautaAnimal = "Ana";
+
+        for (int i = 0; i < adaposturi.Count; i++)
+        {
+            if (adaposturi[i].nume.Equals(cautaAnimal))//de aici porneste cautarea numelui introdus de mine 
+            {
+                
+                gasesteanimal = adaposturi[i];//gaseste animal devine referinta pentru adaposturi[i], fac referire la acelasi obiecte
+            }
+            //VERIFICARE
+            //i = 0 ,adaposturi[0] - > nu este cel cautat -> gasesteanimal ramane null , i++
+            //i = 1,adaposturi[1]- > nu este cel cautat - > gasesteanimal ramane null , i++
+            //i = 2,adaposturi[2] - > este animalul cautat - > executa gasesteanimal = adaposturi[i];
+
+
+        }
+
+        if (gasesteanimal == null) 
+        {
+            Console.WriteLine("Nu este la adapost");
+
+
+        }
+        else
+        {
+            Console.WriteLine("Animal gasit : " + gasesteanimal.nume);
+
+            if (gasesteanimal.adoptat)
+            {
+                gasesteanimal.adoptat = true;
+
+                Console.WriteLine("Adoptat cu succes! ");
+
+            }
+            else
+            {
+                Console.WriteLine("A fost deja adoptat");
+            }
+        }
 
 
 
+    }
+
+    static void Exercitiul5Playlist()
+    {
+        Melodie melodie1 = new Melodie();
+        melodie1.titlu = "AAA";
+        melodie1.artist = "Inna";
+        melodie1.durata = 120;
+
+        Melodie melodie2 = new Melodie();
+        melodie2.titlu = "BBB";
+        melodie2.artist = "Delia";
+        melodie2.durata = 140;
+
+
+        Melodie melodie3 = new Melodie();
+        melodie3.titlu = "CCC";
+        melodie3.artist = "Smiley";
+        melodie3.durata = 90;
+
+        Melodie melodie4 = new Melodie();
+        melodie4.titlu = "DDD";
+        melodie4.artist = "Feli";
+        melodie4.durata = 200;
+
+        List<Melodie> melodii = new List<Melodie>();
+
+        melodii.Add(melodie1);
+        melodii.Add(melodie2);
+        melodii.Add(melodie3);
+        melodii.Add(melodie4);
+
+
+        Melodie melodieGasita = null;
+        string cautaMelodie = "CCC";
+
+        for (int i = 0; i < melodii.Count; i++)//caut melodia dupa nume
+        {
+            if (melodii[i].titlu.Equals(cautaMelodie))
+            {
+                melodieGasita = melodii[i];
+            }
+             
+        }
+
+        if(melodieGasita == null)
+        {
+            Console.WriteLine("Nu este in playlist! ");
+        }
+        else
+        {
+            Console.WriteLine("Artist : " + melodieGasita.artist);
+
+            Console.WriteLine("Durata : " + melodieGasita.durata);
+            
+        }
     }
 
 
@@ -1478,5 +1740,16 @@ class Program
 
 
 
+
 }
+
+
+
+
+
+
+
+
+
+
 
