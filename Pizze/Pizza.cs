@@ -10,5 +10,9 @@ namespace structuri
         public double pret;
         public bool disponibila;
 
+        public string Descriere()
+        {
+            return  $"Pizza: {nume}, Preț: {pret} lei, Disponibilă: {(disponibila ? "Da" : "Nu")}";
+        }
     }
 }

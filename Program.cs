@@ -5,7 +5,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        StudentView view = new StudentView();
-        view.Play();
+        
+       
+        PizzaView pizzaVi= new PizzaView();
+
+        pizzaVi.Play();
     }
 }

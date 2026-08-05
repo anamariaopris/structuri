@@ -17,8 +17,6 @@ namespace structuri
             String text = "";
             text += "Nume " + nume + "\n";
             text += " Medie " + medie;
-
-
             return text;
 
         }
