@@ -16,6 +16,7 @@ namespace structuri
                 Console.WriteLine();
                 Console.WriteLine("Apasati tasta 0 pentru a iesi");
                 Console.WriteLine("Apasati tasta 1 pentru a vedea meniul de pizza");
+                Console.WriteLine("Apasati tasta 2 pentru a vedea doar cele disponibile");
            
                 tasta = Int32.Parse(Console.ReadLine());
 
@@ -23,6 +24,9 @@ namespace structuri
                 {
                     case 0: return;
                     case 1: AfisarePizzas();
+                        break;
+                    case 2:
+                        AfisarePizzaDisponibila();
                         break;
                     default: Console.WriteLine("Input gresit"); 
                         break;
@@ -38,6 +42,10 @@ namespace structuri
             pizzaService.Afisare();
         }
 
+        public void AfisarePizzaDisponibila()
+        {
+            pizzaService.Disponibila();
+        }
 
     }
 }

@@ -7,8 +7,10 @@ class Program
     {
         
        
-        PizzaView pizzaVi= new PizzaView();
+        
+        PizzaView view = new PizzaView();
 
-        pizzaVi.Play();
+        view.Play();
+        
     }
 }

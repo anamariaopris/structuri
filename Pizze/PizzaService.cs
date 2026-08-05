@@ -113,7 +113,6 @@ namespace structuri
             pizzas.Add(pizza17);
         }
 
-
         public void Afisare()
         {
             for(int i = 0;i < pizzas.Count; i++)
@@ -121,5 +120,19 @@ namespace structuri
                 Console.WriteLine(pizzas[i].Descriere());
             }
         }
+
+        public void Disponibila()
+        {
+            for (int i = 0; i < pizzas.Count; i++)
+            {
+                if (pizzas[i].disponibila == true)
+                {
+                    Console.WriteLine(pizzas[i].Descriere());
+                }
+                
+
+            }
+        }
+
     }
 }
