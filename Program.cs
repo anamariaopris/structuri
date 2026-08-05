@@ -16,7 +16,7 @@ class Program
     {
 
 
-        Exercitiul5Playlist();
+        Exercitiul6Hotel();
 
 
 
@@ -1730,11 +1730,88 @@ class Program
             Console.WriteLine("Artist : " + melodieGasita.artist);
 
             Console.WriteLine("Durata : " + melodieGasita.durata);
-            
+
         }
     }
 
+    static void Exercitiul6Hotel()
+    {
+        Camera camera1 = new Camera();
+        camera1.numar = 10;
+        camera1.tip = "matrimoniala";
+        camera1.ocupata = false;
 
+        Camera camera2 = new Camera();
+        camera2.numar = 4;
+        camera2.tip = "deluxe";
+        camera2.ocupata = true;
+
+        Camera camera3 = new Camera();
+        camera3.numar = 25;
+        camera3.tip = "apartament";
+        camera3.ocupata = false;
+
+
+        Camera camera4 = new Camera();
+        camera4.numar = 1;
+        camera4.tip = "apartament2";
+        camera4.ocupata = false;
+
+        List<Camera> camere = new List<Camera> ();
+
+        camere.Add(camera1);
+        camere.Add(camera2);
+        camere.Add(camera3);
+        camere.Add(camera4);
+
+
+        Camera cautaCamera = null;
+
+        int numarCamera = 10;
+
+        for (int i = 0; i < camere.Count; i++)
+        {
+            if (camere[i].numar==numarCamera)
+            {
+                if (camere[i].ocupata == false)
+                {
+                    camere[i].ocupata = true;
+                }
+            }
+
+        }
+
+
+
+        //afisam toate camerele ocupate
+
+        Console.WriteLine("Camerele ocupate sunt : ");
+        for (int i = 0; i < camere.Count; i++)
+        {
+            if (camere[i].ocupata == true)
+            {
+                Console.WriteLine(camere[i].DescriereCamera());
+
+            }
+
+
+        }
+
+        
+        
+            if (cautaCamera != null)
+            {
+                Console.WriteLine("Camera gasita " + cautaCamera.numar);
+            }
+            else
+            {
+                Console.WriteLine("NU EXISTA! ");
+            }
+        
+
+
+
+    }
 
 
 
