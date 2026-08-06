@@ -17,7 +17,9 @@ namespace structuri
                 Console.WriteLine("Apasati tasta 0 pentru a iesi");
                 Console.WriteLine("Apasati tasta 1 pentru a vedea meniul de pizza");
                 Console.WriteLine("Apasati tasta 2 pentru a vedea doar cele disponibile");
-           
+                Console.WriteLine("Apasati tasta 3 pentru a vedea validarea");
+
+
                 tasta = Int32.Parse(Console.ReadLine());
 
                 switch (tasta)
@@ -27,6 +29,9 @@ namespace structuri
                         break;
                     case 2:
                         AfisarePizzaDisponibila();
+                        break;
+                    case 3:
+                        AddPizza();
                         break;
                     default: Console.WriteLine("Input gresit"); 
                         break;
@@ -47,5 +52,26 @@ namespace structuri
             pizzaService.Disponibila();
         }
 
+        public void AddPizza()
+        {
+            Console.Write("Nume :");
+            string nume = Console.ReadLine();
+
+            Console.Write("Pret :");
+            String pret = Console.ReadLine();
+
+             Pizza pizza = new Pizza();
+             pizza.nume = nume;
+             pizza.pret = Double.Parse(pret);
+
+            if (pizzaService.AddPizza(pizza))
+            {
+                Console.WriteLine("pizza a fost adaugata cu success");
+            }
+            else
+            {
+                Console.WriteLine("Datele introduse nu au fost corecte");
+            }
+        }
     }
 }

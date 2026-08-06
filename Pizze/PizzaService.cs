@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace structuri
 {
@@ -134,5 +135,37 @@ namespace structuri
             }
         }
 
+        public bool AddPizza(Pizza pizza)
+        {
+
+            //validarile nume 
+
+            if (pizza.nume.Length == 0)
+            {
+
+                return false;
+            }
+            //validare pret 
+
+            if(pizza.pret == 0)
+            {
+                return false;
+            }
+            //validare unicitate
+            for(int i = 0;i < pizzas.Count; i++)
+            {
+                if (pizzas[i].nume.Equals(pizza.nume)){
+
+                    return false;
+                }
+
+
+            }
+
+            this.pizzas.Add(pizza);
+            return true;
+
+
+        }
     }
 }

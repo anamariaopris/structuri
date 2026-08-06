@@ -5,12 +5,11 @@ class Program
 {
     static void Main(string[] args)
     {
-        
-       
-        
-        PizzaView view = new PizzaView();
 
+
+
+        PizzaView view = new PizzaView();
         view.Play();
-        
+
     }
 }

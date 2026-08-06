@@ -6,9 +6,9 @@ namespace structuri
 {
     internal class Pizza
     {
-        public string nume;
-        public double pret;
-        public bool disponibila;
+        public string nume="";
+        public double pret=0;
+        public bool disponibila=false;
 
         public string Descriere()
         {
