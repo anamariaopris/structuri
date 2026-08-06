@@ -18,7 +18,7 @@ namespace structuri
                 Console.WriteLine("Apasati tasta 1 pentru a vedea meniul de pizza");
                 Console.WriteLine("Apasati tasta 2 pentru a vedea doar cele disponibile");
                 Console.WriteLine("Apasati tasta 3 pentru a vedea validarea");
-
+                Console.WriteLine("Apasati tasta 4 pentru a edita");
 
                 tasta = Int32.Parse(Console.ReadLine());
 
@@ -32,6 +32,8 @@ namespace structuri
                         break;
                     case 3:
                         AddPizza();
+                        break;
+                    case 4:Edit();
                         break;
                     default: Console.WriteLine("Input gresit"); 
                         break;
@@ -72,6 +74,29 @@ namespace structuri
             {
                 Console.WriteLine("Datele introduse nu au fost corecte");
             }
+      
+        }
+
+
+        public void Edit()
+        {
+            Console.WriteLine("Introduceti numele pizzei  editabile");
+            string pizzaCautata = Console.ReadLine();
+
+            Console.WriteLine("Pret nou : ");
+            string preNout = Console.ReadLine();
+
+            bool edit=pizzaService.EditPizza(pizzaCautata, Double.Parse(preNout));
+
+            if (edit)
+            {
+                Console.WriteLine("Pizza editata cu succes ");
+            }
+            else
+            {
+                Console.WriteLine("Editare esuata ");
+            }
         }
     }
+
 }

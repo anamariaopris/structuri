@@ -167,5 +167,46 @@ namespace structuri
 
 
         }
+
+
+        //functie ce editeaza pretul  unei pizze , cu tasta 4
+        public bool EditPizza(string nume,double pret)
+        {
+
+            if (pret <= 0)
+            {
+                return false;
+            }
+
+
+
+            for(int i=0;i < pizzas.Count; i++)
+            {
+                if (pizzas[i].nume.Equals(nume))
+                {
+
+                    pizzas[i].pret = pret;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        //functie ce editeaza disponibilittaea
+
+        public bool EditDisponibilitate(string nume ,bool status)
+        {
+            //validare
+            for(int i = 0;i < pizzas.Count; i++)
+            {
+                if (pizzas[i].nume.Equals(nume))
+                {
+                    pizzas[i].disponibila=status;
+                    return true;
+                }
+            }
+            return false;
+            
+        }
     }
 }
