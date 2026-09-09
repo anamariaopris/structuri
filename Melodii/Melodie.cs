@@ -10,6 +10,10 @@ namespace structuri
         public string artist;
         public int durata;
 
+        public string Descriere()
+        {
+            return $"Melodie: {titlu}, Artist : {artist}, durata : {durata}";
+        }
 
     }
 }
