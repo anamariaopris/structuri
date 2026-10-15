@@ -1,4 +1,5 @@
-﻿using System;
+﻿using structuri.Bibleoteca;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -56,6 +57,80 @@ namespace structuri.MagazinTelefoane
             }
         }
 
+        public Telefon GasesteModel(string model)
+        {
+            for (int i = 0;  i < telefoane.Count; i++)
+            {
+                if (telefoane[i].model.Equals(model))
+                {
+                    return telefoane[i];
+                }
 
+            }
+            return null;
+        }
+
+       
+        public bool AddTelefon(Telefon telefon)
+        {
+            //verificam daca telefonul este in lista
+            Telefon x = GasesteModel(telefon.model);
+             
+            if(x == null)
+            {
+                telefoane.Add(x);
+                return true;
+            }
+
+            return false;
+
+        }
+
+   
+        //functie de gasire masina si sa ne returneze pozitia din lista
+
+        public int  FindTelefonByModel(String model)
+        {
+            for(int i =0;i < telefoane.Count; i++)
+            {
+                if (telefoane[i].model.Equals(model)){
+
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        public  bool DeleteTelefonByModel(String model)
+        {
+               int poz= FindTelefonByModel(model);
+
+            if (poz != -1)
+            {
+                telefoane.RemoveAt(poz);
+                return true;
+            }
+
+            return false;
+
+
+        }
+
+        //editare
+        public bool EditPriceTelefon(String model,int newPrice)
+        {
+            int pozitie = FindTelefonByModel(model);
+
+            if( pozitie != -1)
+            {
+                telefoane[pozitie].pret = newPrice;
+                return true;
+            }
+            return false;
+
+        }
+        
     }
+
+    
 }

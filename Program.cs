@@ -1,5 +1,6 @@
 using structuri;
 using structuri.Bibleoteca;
+using structuri.MagazinTelefoane;
 using structuri.Masini;
 using System;
 using System.Security.Cryptography.X509Certificates;
@@ -9,23 +10,50 @@ class Program
 {
     static void Main(string[] args)
     {
-      
 
-        CarteService service = new CarteService(); //creaza ob service cu lista goala
+        TelefonService service = new TelefonService();
 
-        // apoi incarc cartile prin ob service cu metoda Load
+        service.LoadTelefoane();
+        service.AfisareTelefoane();
 
-        service.LoadCarti();
+        Telefon gasesteModel = service.GasesteModel("Galaxy S1");
+        if (gasesteModel == null)
+        {
+            Console.WriteLine("nu a gasit telefonul");
+        }
 
-        //afisez cu metoda
-        service.AfisareCarti();
+        Telefon x = new Telefon();
 
-        Carte carteMax = service.CeaMaiLunga(); // intorc tipul "carte din Service.cs" 
-        Console.WriteLine(carteMax.titlu);
+        x.model = "Pixel 8";
 
-        Carte gasesteTitlu = service.GasesteDupaTitlu("Ion"); //titlul introdus in metoda appoi salvat in variabila gasesteTitlu
-        Console.WriteLine(gasesteTitlu.titlu);
+        bool rez = service.AddTelefon(x);
 
+        Console.WriteLine(rez);
+
+
+
+        int rezultat = service.FindTelefonByModel("Pixel 8");
+        Console.WriteLine(rezultat);
+
+
+
+        bool test = service.DeleteTelefonByModel("Moto G814");
+
+        Console.WriteLine(test);
+
+
+        service.AfisareTelefoane();
+
+
+        
+
+        bool test2 = service.EditPriceTelefon("Moto G84", 123);
+
+
+        Console.WriteLine(test2);
+
+
+        service.AfisareTelefoane();
 
 
     }
