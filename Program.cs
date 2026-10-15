@@ -1,4 +1,5 @@
 using structuri;
+using structuri.Bibleoteca;
 using structuri.Masini;
 using System;
 using System.Security.Cryptography.X509Certificates;
@@ -8,34 +9,22 @@ class Program
 {
     static void Main(string[] args)
     {
-        Film f1 = new Film();
-        f1.titlu = "Inception";
-        f1.gen = "SF";
-        f1.regizor = "Christopher Nolan";
-        f1.durataMinute = 148;
-        f1.pretBilet = 32.5;
-        f1.sala = "Sala 1";
-        f1.ratingImdb = 8.8;
-        f1.este3D = false;
-        f1.limitaVarsta = 12;
-        f1.oraDifuzare = "19:30";
-        f1.locuriLibere = 45;
-        
+      
 
-        FilmService service = new FilmService();
+        CarteService service = new CarteService(); //creaza ob service cu lista goala
 
+        // apoi incarc cartile prin ob service cu metoda Load
 
-        service.LoadFilms();
-     
-        bool x=service.AddFilm(f1);
+        service.LoadCarti();
 
+        //afisez cu metoda
+        service.AfisareCarti();
 
-        Console.WriteLine(x);
+        Carte carteMax = service.CeaMaiLunga(); // intorc tipul "carte din Service.cs" 
+        Console.WriteLine(carteMax.titlu);
 
-        
-
-       
-
+        Carte gasesteTitlu = service.GasesteDupaTitlu("Ion"); //titlul introdus in metoda appoi salvat in variabila gasesteTitlu
+        Console.WriteLine(gasesteTitlu.titlu);
 
 
 
