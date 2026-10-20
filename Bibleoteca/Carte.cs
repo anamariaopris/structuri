@@ -22,7 +22,7 @@ namespace structuri.Bibleoteca
         }
 
         //atribute noi
-        public int volumPagini;
+        //public int volumPagini;
 
 
 

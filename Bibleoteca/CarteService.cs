@@ -59,15 +59,15 @@ namespace structuri.Bibleoteca
             for (int i = 0; i < carti.Count; i++)
             {
 
-                if (carti[i].volumPagini > carteMax.volumPagini)
+                if (carti[i].pagini > carteMax.pagini)
                 {
                     carteMax = carti[i];
                 }
+               
             }
 
             return carteMax;
-
-        } //intoarce ceva
+        } 
 
         public Carte GasesteDupaTitlu(string titlu)
         {

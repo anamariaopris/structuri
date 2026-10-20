@@ -11,45 +11,43 @@ class Program
 {
     static void Main(string[] args)
     {
-        AdapostService service = new AdapostService();
+        CarteService carte_service = new CarteService();
 
-        service.LoadAdaposturi();
-        service.AfisareAdaposturi();
+        carte_service.LoadCarti();
+        carte_service.AfisareCarti();
 
+        //variabila de tip carte
+        Carte volumPagini_test = carte_service.CeaMaiLunga();
+        Console.WriteLine("Cartea cu cel mai mare volum de pagini :" + volumPagini_test.Descriere());
 
-        Adapost gaseste_test = service.GasesteAdapostul("Bucuresti5");
-
-        if (gaseste_test != null)
+        Carte cautaTitlu_test = carte_service.GasesteDupaTitlu("1984");
+        //Console.WriteLine("Titlul cautat este :" + cautaTitlu_test.Descriere());
+        if (cautaTitlu_test == null)
         {
-            Console.WriteLine("adapost gasit!");
+            Console.WriteLine("cartea nu a fost gasita");
         }
         else
         {
-            Console.WriteLine("nu exista in lista");
+            Console.WriteLine("carte gasita " + cautaTitlu_test.Descriere());
         }
 
 
-        Adapost cautat = new Adapost();
-        cautat.nume = "Bucuresti1";
-        bool add_test = service.AddAdapost(cautat);
-        Console.WriteLine(add_test);
+        Carte adaugaCarte = new Carte();
+        adaugaCarte.titlu = "La Medeleni";
+
+        bool add_test = carte_service.AddCarte(adaugaCarte);
+        if (add_test == null)
+        {
+            Console.WriteLine("Carte adaugata cu succes ");
+        }
+        else
+        {
+            Console.WriteLine("Cartea exista deja ");
+        }
 
 
-        int find_test = service.FindPositionAdapostByName("Bucuresti5");
-        Console.WriteLine(find_test);
-        Console.WriteLine();
-
-
-        bool delete_test = service.DeleteAdapostByName("Bucuresti2");
-        Console.WriteLine(delete_test);
-        service.AfisareAdaposturi();
-
-        bool edit_test = service.EditSpecieAdapost("Bucuresti1", "soarece");
-        Console.WriteLine(edit_test);
-        service.AfisareAdaposturi();
 
     }
-
 
 }
 
