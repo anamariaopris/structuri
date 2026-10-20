@@ -3,6 +3,7 @@ using structuri.Bibleoteca;
 using structuri.MagazinTelefoane;
 using structuri.Masini;
 using System;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using static System.Net.WebRequestMethods;
 
@@ -10,51 +11,42 @@ class Program
 {
     static void Main(string[] args)
     {
+        AdapostService service = new AdapostService();
 
-        TelefonService service = new TelefonService();
+        service.LoadAdaposturi();
+        service.AfisareAdaposturi();
 
-        service.LoadTelefoane();
-        service.AfisareTelefoane();
 
-        Telefon gasesteModel = service.GasesteModel("Galaxy S1");
-        if (gasesteModel == null)
+        Adapost gaseste_test = service.GasesteAdapostul("Bucuresti5");
+
+        if (gaseste_test != null)
         {
-            Console.WriteLine("nu a gasit telefonul");
+            Console.WriteLine("adapost gasit!");
+        }
+        else
+        {
+            Console.WriteLine("nu exista in lista");
         }
 
-        Telefon x = new Telefon();
 
-        x.model = "Pixel 8";
-
-        bool rez = service.AddTelefon(x);
-
-        Console.WriteLine(rez);
+        Adapost cautat = new Adapost();
+        cautat.nume = "Bucuresti1";
+        bool add_test = service.AddAdapost(cautat);
+        Console.WriteLine(add_test);
 
 
-
-        int rezultat = service.FindTelefonByModel("Pixel 8");
-        Console.WriteLine(rezultat);
-
-
-
-        bool test = service.DeleteTelefonByModel("Moto G814");
-
-        Console.WriteLine(test);
+        int find_test = service.FindPositionAdapostByName("Bucuresti5");
+        Console.WriteLine(find_test);
+        Console.WriteLine();
 
 
-        service.AfisareTelefoane();
+        bool delete_test = service.DeleteAdapostByName("Bucuresti2");
+        Console.WriteLine(delete_test);
+        service.AfisareAdaposturi();
 
-
-        
-
-        bool test2 = service.EditPriceTelefon("Moto G84", 123);
-
-
-        Console.WriteLine(test2);
-
-
-        service.AfisareTelefoane();
-
+        bool edit_test = service.EditSpecieAdapost("Bucuresti1", "soarece");
+        Console.WriteLine(edit_test);
+        service.AfisareAdaposturi();
 
     }
 
