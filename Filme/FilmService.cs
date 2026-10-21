@@ -207,7 +207,6 @@ namespace structuri
         }
 
 
-
         public void AfisareFilme()
         {
 
@@ -217,8 +216,6 @@ namespace structuri
                 Console.WriteLine(filme[i].Descriere());
             }
         }
-
-
 
 
         //functie ce ne returneaza filmul cu durata cea mai amre
@@ -260,18 +257,60 @@ namespace structuri
 
         //functie de adaugare film
 
-       public bool AddFilm(Film film)
+       public bool AddFilm(Film filmprimit)
         {
 
-            Film c = gasesteTitlu(film.titlu);
+            Film cautat = gasesteTitlu(filmprimit.titlu);
 
-            if (c == null)
+            if (cautat == null)
             {
-                filme.Add(c);
+                filme.Add(filmprimit);
                 return true;
             }
             return false;
         }
+
+        public int FindPositionbyTitle(string titlu)
+        {
+            for(int i =0; i < filme.Count; i++)
+            {
+                if (filme[i].titlu.Equals(titlu))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        public bool DeleteMovieByTitle(string titlu)
+        {
+            int pozitia = FindPositionbyTitle(titlu);
+
+            
+            if(pozitia != -1)
+              //daca film este gasit, sterg, daca nu , nu indeplinesc conditia
+            {
+                filme.RemoveAt(pozitia);
+                return true;
+            }
+            return false;
+        }
+
+        public bool EdiMovie(string titlu,int newLocuriLibere)
+        {
+            int pozitia = FindPositionbyTitle(titlu);
+
+            if(pozitia != -1)
+            {
+                filme[pozitia].locuriLibere = newLocuriLibere;
+                return true;
+            }
+            return false;
+        }
+
+
+
+
 
     }
     

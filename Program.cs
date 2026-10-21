@@ -11,41 +11,48 @@ class Program
 {
     static void Main(string[] args)
     {
-        CarteService carte_service = new CarteService();
+        
+        FilmService service = new FilmService();
 
-        carte_service.LoadCarti();
-        carte_service.AfisareCarti();
+        service.LoadFilms();
+        service.AfisareFilme();
 
-        //variabila de tip carte
-        Carte volumPagini_test = carte_service.CeaMaiLunga();
-        Console.WriteLine("Cartea cu cel mai mare volum de pagini :" + volumPagini_test.Descriere());
 
-        Carte cautaTitlu_test = carte_service.GasesteDupaTitlu("1984");
-        //Console.WriteLine("Titlul cautat este :" + cautaTitlu_test.Descriere());
-        if (cautaTitlu_test == null)
+        Film durataMaxima_test = service.DurataMaxima();
+        Console.WriteLine(durataMaxima_test.durataMinute);
+
+        //metoda intoarce o variabila de tip Film
+        Film gasesteTitlu_test = service.gasesteTitlu("Inception2");
+        if(gasesteTitlu_test == null)
         {
-            Console.WriteLine("cartea nu a fost gasita");
+            Console.WriteLine("Filmul nu exista! ");
         }
         else
         {
-            Console.WriteLine("carte gasita " + cautaTitlu_test.Descriere());
+            Console.WriteLine(gasesteTitlu_test.Descriere());
         }
 
 
-        Carte adaugaCarte = new Carte();
-        adaugaCarte.titlu = "La Medeleni";
+        Film cautat = new Film();
+        cautat.titlu = "SPIDERMAN";
+        bool add_test = service.AddFilm(cautat);
+        Console.WriteLine(add_test);
+        service.AfisareFilme();
 
-        bool add_test = carte_service.AddCarte(adaugaCarte);
-        if (add_test == null)
-        {
-            Console.WriteLine("Carte adaugata cu succes ");
-        }
-        else
-        {
-            Console.WriteLine("Cartea exista deja ");
-        }
+        //metoda intoarce o variabila de tip int
+        int findposition_Test = service.FindPositionbyTitle("Gladiator");
+        Console.WriteLine(findposition_Test);
 
 
+        bool delete_test = service.DeleteMovieByTitle("Inception2");
+        Console.WriteLine(delete_test);
+        service.AfisareFilme();
+
+        bool edit_test = service.EdiMovie("Gladiator", 100);
+        Console.WriteLine(edit_test);
+        service.AfisareFilme();
+
+        
 
     }
 
