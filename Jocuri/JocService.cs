@@ -85,18 +85,76 @@ namespace structuri
             for (int i = 0; i < jocuri.Count; i++)
             {
 
-                if (!jocuri[i].terminat)
+                if (jocuri[i].terminat)
                 {
                     Console.WriteLine(jocuri[i].Descriere());
                 }
             }
         }
 
+        public Joc GasesteJocul(string nume)
+        {
+            for(int i = 0; i< jocuri.Count; i++)
+            {
+                if (jocuri[i].nume.Equals(nume))
+                {
+                    return jocuri[i];
+                }
+               
+            }
+            return null;
+        }
 
+        public bool AddJoc(Joc jocprimit)
+        {
+            Joc cautat = GasesteJocul(jocprimit.nume);
 
+            if(cautat == null)
+            {
+                jocuri.Add(jocprimit);
+                return true;
+            }
 
+            return false;
+        }
 
+        public int FindPositionGame(string nume)
+        {
+            for(int i = 0; i < jocuri.Count; i++)
+            {
+                if (jocuri[i].nume.Equals(nume))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
 
+        public bool EditPlatform(string nume, string newPlatform)
+        {
+            int pozitie = FindPositionGame(nume);
+
+            if(pozitie != -1)
+            {
+                jocuri[pozitie].platforma = newPlatform;
+                return true;
+            }
+
+            return false;
+
+        }
+
+        public bool DeleteGamebyName(string nume)
+        {
+            int pozitia = FindPositionGame(nume);
+
+            if(pozitia != -1)
+            {
+                jocuri.RemoveAt(pozitia);
+                return true;
+            }
+            return false;
+        }
 
 
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 
@@ -81,7 +82,67 @@ namespace structuri.Masini
             return masinaPretmaxim;
 
 
+        }
 
+        public Masini GasesteMasina(string marca)
+        {
+            for(int i = 0; i < masini.Count; i++)
+            {
+                if (masini[i].marca.Equals(marca))
+                {
+                    return masini[i];
+                }
+            }
+            return null;
+        }
+
+        public bool AddMasina(Masini masinaprimita)
+        {
+            Masini cautate = GasesteMasina(masinaprimita.marca);
+
+            if(cautate == null)//nu exista un obiect cu acelai nume, il pot adauga
+            {
+                masini.Add(masinaprimita);
+                return true;
+            }
+            return false;
+        }
+
+        public int FindPosition(string marca)
+        {
+            for(int i = 0; i < masini.Count; i++)
+            {
+                if (masini[i].marca.Equals(marca))
+                {
+                   return i;
+                }
+            }
+            return -1;
+
+        }
+
+        public bool DeleteMasina(string marca)
+        {
+            int pozitia = FindPosition(marca);
+
+            if(pozitia != -1)
+            {
+                masini.RemoveAt(pozitia);
+                return true;
+            }
+            return false;
+        }
+
+        public bool EdtPrice(string marca , double newPrice)
+        {
+            int pozitie = FindPosition(marca);
+
+            if(pozitie != -1)
+            {
+                masini[pozitie].pret = newPrice;
+                return true;    
+            }
+            return false;
         }
     }
 }
